@@ -1,0 +1,26 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int
+main ()
+{
+  int n;
+  cin >> n;
+  switch(true){
+      case 1: cout<<"1000 rupee note"<<n/1000<<endl;
+      case 2: cout<<"500 rupee note"<<n/500<<endl;
+      case 3: cout<<"100 rupee note"<<n/100<<endl;
+      case 4: cout<<"50 rupee note"<<n/50<<endl;
+      case 5: cout<<"1000 rupee note"<<n/20<<endl;
+      case 6: cout<<"10 rupee note"<<n/10<<endl;
+      case 7: cout<<"5 rupee note"<<n/5<<endl;
+      
+      
+      
+      
+      
+  }
+  
+
+}

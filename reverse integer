@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int
+main ()
+{
+  int number, revNumber = 0, remainder,ans=0;
+  cin >> number;
+  while (number > 0)
+    {
+      remainder = number % 10;
+      
+      revNumber = (revNumber * 10) + remainder;
+
+      number = number / 10;
+
+
+
+    }
+  cout << revNumber;
+  return 0;
+}

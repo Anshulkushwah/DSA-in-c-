@@ -1,0 +1,27 @@
+
+#include <iostream>
+
+using namespace std;
+
+int
+AP (int a)
+{
+  int ans;
+  ans = a * 3 + 7;
+
+  return ans;
+}
+
+
+
+int
+main ()
+{
+  int a, b;
+  cin >> a;
+  b = AP (a);
+
+  cout << b;
+
+  return 0;
+}

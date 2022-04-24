@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* formulae n & (n-1) {if 16 in bit 10000 & 15 is 01111} */
+
+int
+main ()
+{
+  int n,ans;
+  cin >> n;
+  ans = n & (n-1);
+  if(ans==0){
+      cout<<"n is power of two";
+  }
+  else 
+  cout<<"wrong input";
+
+ 
+
+  return 0;
+}

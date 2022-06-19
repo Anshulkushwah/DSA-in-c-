@@ -1,0 +1,62 @@
+
+#include <iostream>
+
+using namespace std;
+
+void
+printArray (int arr[], int size)
+{
+  for (int i = 0; i < size; i++)
+    {
+
+      cout << arr[i] << " ";
+    }
+
+
+}
+
+
+bool
+search (int arr[], int size, int target)
+{
+  for (int i = 0; i < size; i++)
+    {
+      if (arr[i] == target)
+	return true;
+
+
+    }
+  return false;
+
+}
+
+
+
+int
+main ()
+{
+  int arr[100], size, target;
+  cout << "Enter the size of array " << endl;
+  cin >> size;
+
+  for (int i = 0; i < size; i++)
+    {
+      cin >> arr[i];
+    }
+  cout << "Enter the target of array " << endl;
+  cin >> target;
+
+
+  if (search (arr, size, target))
+    {
+      cout << "Element found" << endl;
+    }
+  else
+    {
+      cout << "Element not found" << endl;
+    }
+
+  printArray (arr, size);
+
+  return 0;
+}

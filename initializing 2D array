@@ -1,0 +1,44 @@
+
+#include <iostream>
+
+using namespace std;
+
+int
+main ()
+{
+    //initialize all element with zero
+  int arr1[3][3] = { 0 };
+  //initialize first element with 1 and rest 0
+  int arr2[3][3] = { 1 };
+  //initialize 2d array like 1d array
+  int arr3[3][3] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+  //initialize 2d array row/column wise
+  int arr4[4][2] = { {1, 2}, {2, 3}, {3, 4}, {4, 5} };
+  int n = 3;
+
+  /*
+     for (int i = 0; i < n; i++)
+     {
+     for (int j = 0; j < n; j++)
+     {
+     cin>>arr[i][j];
+     }
+
+
+     }
+   */
+
+
+
+  for (int i = 0; i < 4; i++)
+    {
+      for (int j = 0; j < 2; j++)
+	{
+	  cout << arr4[i][j] << " ";
+	}
+      cout << endl;
+
+    }
+  cout << "sab sahi chal rha hai";
+  return 0;
+}

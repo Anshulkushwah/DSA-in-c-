@@ -1,0 +1,37 @@
+
+#include <iostream>
+#include <climits>
+using namespace std;
+
+void
+sum (int arr[3][3], int row, int col)
+{
+
+  int maxi = INT_MIN;
+  for (int j = 0; j < col; j++)
+    {
+      int add = 0;
+      for (int i = 0; i < row; i++)
+	{
+	  add = add + arr[i][j];
+	}
+      maxi = max (maxi, add);
+      cout << add << " ";
+
+
+    }
+  cout<<endl<<"maximum number = "<< maxi<<endl;
+}
+
+int
+main ()
+{
+
+
+  int arr[3][3] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+  sum (arr, 3, 3);
+
+  cout<<"sab sahi chal rha hai";
+  return 0;
+}

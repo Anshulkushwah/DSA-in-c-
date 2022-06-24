@@ -1,0 +1,70 @@
+
+#include <iostream>
+
+using namespace std;
+
+int
+main ()
+{
+  int n = 4, m = 4;
+  int arr[m][n] =
+    { {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16} };
+
+  int startingRow = 0;
+  int startingCol = 0;
+  int endingRow = m - 1;
+  int endingCol = n - 1;
+
+
+  // PRINT starting 1 Row
+  for (int i = 0; i < m; i++)
+    {
+      cout << arr[startingRow][i] << " ";
+    }
+  // PRINT ending side 3 col 
+  for (int j = 0 + 1; j < n; j++)
+    {
+      cout << arr[j][endingCol] << " ";
+    }
+  //// PRINT ending lower 3 row
+
+  for (int j = 2; j >= 0; j--)
+    {
+      cout << arr[endingRow][j] << " ";
+    }
+
+  // PRINT starting 1 Col
+  startingRow++;
+  m--;
+
+  for (int j = 2; j > 0; j--)
+    {
+      cout << arr[j][startingCol] << " ";
+    }
+  // PRINT starting 2 Row 
+
+  for (int j = 1; j < endingCol; j++)
+    {
+      cout << arr[startingCol + 1][j] << " ";
+    }
+
+  // PRINT ending 2 Col
+  for (int j = 0 + 2; j < n - 1; j++)
+    {
+      cout << arr[j][j] << " ";
+    }
+
+//// PRINT ending lower 2 row
+
+  for (int j = 2; j < endingRow; j++)
+    {
+      cout << arr[j][startingCol + 1] << " ";
+    }
+  // PRINT starting 2 Row 
+
+  for (int j = 1; j < endingCol-1; j++)
+    {
+      cout << arr[startingCol + 1][j] << " ";
+    }
+  return 0;
+}

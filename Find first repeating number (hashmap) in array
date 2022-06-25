@@ -1,0 +1,45 @@
+
+#include <iostream>
+#include <climits>
+#include<unordered_map>
+using namespace std;
+
+void
+firstRepeating (int arr[], int n)
+{
+  //step1 : store count of numbers
+  unordered_map < int, int >count;
+
+  for (int i = 0; i < n; i++)
+    {
+      int currentElement = arr[i];
+      count[currentElement]++;
+    }
+
+  // step 2 : travers array and find the ans
+  for (int i = 0; i < n; i++)
+    {
+      int currentElement = arr[i];
+      if (count[currentElement] > 1)
+	{
+	  cout<<currentElement<<endl;
+	  break;
+	  
+
+	}
+
+
+    }
+ 
+}
+
+int
+main ()
+{
+  int arr[] = { 8, 3, 9, 4, 7, 3, 6 };
+
+  firstRepeating (arr, 7);
+  
+
+  return 0;
+}

@@ -1,0 +1,57 @@
+
+int
+minswaps (int arr[], int size, int k)
+{
+
+  // find window size -> count of number <=k
+  int count = 0;
+  for (int i = 0; i <= size; i++)
+    {
+
+      if (arr[i] <= k)
+	{
+	  count++;
+	}
+    }
+
+  // create 1st window
+  int bad = 0;
+
+  for (int i = 0; i < count; i++)
+    {
+      if (arr[i] > k)
+	{
+	  bad++;
+	}
+    }
+  int ans = bad;
+  // cheack for remaining windows
+
+  for (int i = 0, j = count; j < size; i++, j++)
+    {
+      if (arr[i] > k)
+	{
+	  bad--;
+	}
+      if (arr[j] > k)
+	{
+	  bad++;
+	}
+      ans = min (ans, bad);
+    }
+
+  return ans;
+
+
+}
+
+int
+main ()
+{ int arr[]={2,1,5,6,3};
+  
+  minswaps(arr,5,3);
+  cout<<minswaps;
+
+
+  return 0;
+}

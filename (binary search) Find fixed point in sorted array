@@ -1,0 +1,64 @@
+
+#include <iostream>
+
+using namespace std;
+
+// fixedPoint means , jaha Array index or Element ki value same ho 
+
+int
+fixedPoint (int arr[], int n)
+{
+  int start = 0;
+  int end = n - 1;
+  int mid = start + (end - start) / 2;
+  int ans = -1;
+  while (start <= end)
+    {
+      int midElement = arr[mid];
+
+// Element found
+
+      if (midElement == mid)
+	{
+	  ans = mid;
+	  return ans;
+	}
+//check in left part and neglect right part
+
+
+      else if (mid < midElement)
+	{
+	  end = mid - 1;
+	}
+
+//check in right part and neglect left part
+
+      else
+	{
+	  start = mid + 1;
+	}
+
+
+      mid = start + (end - start) / 2;
+
+
+    }
+
+  return ans;
+
+}
+
+////////////////
+
+
+int
+main ()
+{
+  int arr[] = { -10, -5, 2, 3, 7 };
+  int n = 5;
+
+
+  cout << fixedPoint (arr, n);
+
+  return 0;
+}

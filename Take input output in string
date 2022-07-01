@@ -10,7 +10,7 @@ int main()
     // intput 
     cin >> str ; 
     // take only first word of string after space,newline don't take
-    // getline(cin, str) -- > is used for take input full sentence
+    // getline(cin, str) -- > is used for take input full sentence // we can also take custom delimeter in this function
     
     // print 
     cout<<"str is " << str << endl; 

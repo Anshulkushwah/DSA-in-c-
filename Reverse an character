@@ -1,0 +1,41 @@
+
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+
+using namespace std;
+
+void
+getrevers (char arr[])
+{
+  int s = 0;
+  int e = strlen(arr) -1  ;
+  
+  while (s<=e)
+    {
+      swap(arr[s],arr[e]);
+      s++;
+      e--;
+    }
+
+}
+
+
+int
+main ()
+{
+
+  // creation 
+  char name[10];
+
+  // input
+  cout << "ENTER YOUR NAME : ";
+  cin >> name;
+
+  // print
+  cout << "Name is --> "<< name << endl ;
+  getrevers(name);
+  cout <<" revers is -- > " << name;
+
+  return 0;
+}

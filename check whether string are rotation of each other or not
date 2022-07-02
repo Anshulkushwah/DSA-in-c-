@@ -1,0 +1,26 @@
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{ string a = "bbarba";
+  string b = "babbar";
+  
+  int j = 0 ;
+  // it is a predefined function please study on cpprefrence website
+  string c = a + a ;
+  /* we want "babbar" in "bbarba" 
+  so (a+a =bbar'babbar'ba )
+  in this way we can find out*with the help of 
+  "substring is present or not in given string" this question
+ */
+ if(c.find(b) == string::npos) 
+    cout<<"False";
+ 
+ else
+ cout << " TRUE ";
+
+    return 0;
+}

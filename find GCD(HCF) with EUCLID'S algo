@@ -40,5 +40,5 @@ main ()
   cout << "Enter the number a & b";
   cin >> a >> b;
 
-  cout << "GCD is -- > " gcd (a, b);
+  cout << "GCD is -- > "<< gcd (a, b);
 }

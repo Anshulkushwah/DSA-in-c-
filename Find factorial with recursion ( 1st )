@@ -1,0 +1,32 @@
+
+#include <iostream>
+
+using namespace std;
+
+int Factorial(int n){
+    // base case 
+    // assuming n > 0
+    if (n ==1){
+        return 1;
+    }
+    
+    int smallerProblemAns = Factorial(n-1);
+    int biggerProblemAns = n * smallerProblemAns;
+    return biggerProblemAns;
+    
+    
+    
+    
+}
+
+
+int main()
+{
+    int n ;
+    cout<<"Enter the value of n"<<endl;
+    cin>>n;
+    
+    cout<<" Factorial of "<<n<<" is " << Factorial(n)<<endl;
+
+    return 0;
+}

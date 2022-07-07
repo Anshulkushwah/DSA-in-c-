@@ -1,0 +1,70 @@
+*****************************************************************************/
+/*
+#include <iostream>
+
+using namespace std;
+
+void printCount(int n){
+    // base case 
+    // assuming n > 0
+    if (n < 1 ){
+        return ;
+    }
+    
+    // proccesing
+    cout <<n <<" ";
+    
+    //recursive relation
+    
+    printCount(n-1);
+    
+    
+}
+
+
+int main()
+{
+    int n ;
+    cout<<"Enter the value of n"<<endl;
+    cin>>n;
+    
+    printCount(n);
+
+    return 0;
+}
+*/
+
+//head and tail play major role
+
+#include <iostream>
+
+using namespace std;
+
+void printCount(int n){
+    // base case 
+    // assuming n > 0
+    if (n < 1 ){
+        return ;
+    }
+    
+   
+    //recursive relation
+    
+    printCount(n-1);
+    
+     // proccesing
+    cout <<n <<" ";
+    
+}
+
+
+int main()
+{
+    int n ;
+    cout<<"Enter the value of n"<<endl;
+    cin>>n;
+    
+    printCount(n);
+
+    return 0;
+}

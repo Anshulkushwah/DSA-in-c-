@@ -1,0 +1,28 @@
+
+int
+expo (int n)
+{
+  // Base case 
+
+  if (n == 0)
+    return 1;
+
+  int smallerProblemAns = expo (n / 2);
+
+  if (n & 1)
+    return smallerProblemAns * smallerProblemAns * 2;
+
+  else
+    return smallerProblemAns * smallerProblemAns;
+
+
+}
+
+
+int
+main ()
+{
+  cout << "ans is " << expo (11) << endl;
+
+  return 0;
+}

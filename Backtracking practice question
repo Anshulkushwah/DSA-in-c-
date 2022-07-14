@@ -1,0 +1,50 @@
+
+#include <iostream>
+#include <string>
+#include <set>
+#include <map>
+using namespace std;
+
+void
+solve (string tiles, string & output, set < string > &result, map < int,
+       bool > &flag)
+{
+  for (int i = 0; i < tiles.length (); i++)
+
+    {
+      if (flag[i] == 0)
+	{
+
+	  char ch = tiles[i];
+	  cout << "before pushback  " << ch << endl;
+	  output.push_back (ch);
+	  flag[i] = 1;
+	  
+	  cout << "after pushback  " << output << endl;
+	  result.insert (output);
+	  
+	  
+	  cout << "before recursion   " << endl;
+	  solve (tiles, output, result, flag);
+
+	  cout << "after recursion   " << endl;
+	  
+	  output.pop_back ();
+	  flag[i] = 0;
+	  cout << "after pop_back   "<< endl;
+	}
+    }
+}
+
+int
+main ()
+{
+  string tiles = "AAB";
+  string output = " ";
+  set < string > result;
+  map < int, bool > flag;
+
+  solve (tiles, output, result, flag);
+
+  cout << result.size ();
+}

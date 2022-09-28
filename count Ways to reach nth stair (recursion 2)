@@ -1,0 +1,35 @@
+
+#include <iostream>
+
+using namespace std;
+
+int countDistinctWayToClimbStair(int nStair ){
+    int ans;
+    // Base case 
+    
+    if(nStair < 0) return 0;
+    if(nStair == 0) return 1;
+    
+    //Processing
+    
+    // recursive call
+    
+    ans = countDistinctWayToClimbStair(nStair-1)
+    +countDistinctWayToClimbStair(nStair-2);
+    
+    return ans;
+    
+    
+    
+}
+
+int
+main ()
+{
+  cout << "Enter the number ";
+  int n;
+  cin >> n;
+ cout<< countDistinctWayToClimbStair (n);
+
+  return 0;
+}

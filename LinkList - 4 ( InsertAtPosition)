@@ -18,6 +18,22 @@ public:
 
 };
 
+//Find lenth of LinkList
+
+int
+length (Node * &head)
+{
+  Node *temp = head;
+  int len = 0;
+
+  while (temp != NULL)
+    {
+      len++;
+      temp = temp->next;
+    }
+  return len;
+}
+
 
 void
 insertAtHead (Node * &head, int d)
@@ -43,30 +59,60 @@ insertAtTail (Node * &tail, int d)
 
 }
 
-void insertAtPosition(Node* &head,int pos , int d){
-    
-    if(pos == 1 ){
-        insertAtHead(head,d);
+void
+insertAtPosition (Node * &head, int pos, int d)
+{
+
+  if (pos == 1)
+    {
+      insertAtHead (head, d);
     }
-    
-    else {
-        // step 1 : creation of New Node
-        Node * newNode = new Node(d);
-        
-        // step 2 : traverse
-        Node* prev = head;
-        int t = pos - 2;
-        while(t--){
-         prev = prev->next; 
-        }
-        
-        // step 3 : conection update
-        newNode->next = prev->next;
-        prev->next = newNode;
-        
+
+  else
+    {
+      // step 1 : creation of New Node
+      Node *newNode = new Node (d);
+
+      // step 2 : traverse
+      Node *prev = head;
+      int t = pos - 2;
+
+      /*       ////////// tail updation pending ///////////
+
+         int len = length (head);
+
+
+         if(pos == len + 1){
+
+         insertAtTail (tail, d);
+         }
+
+         ///////////                */
+
+      int len = length (head);
+
+      while (t--)
+	{
+	  prev = prev->next;
+	}
+
+
+
+      // step 3 : conection update
+      if (pos <= len + 1)
+	{
+	  newNode->next = prev->next;
+	  prev->next = newNode;
+	}
+
+
+
     }
-    
+
 }
+
+
+
 
 void
 traverse (Node * &head)
@@ -86,7 +132,7 @@ main ()
 {
   //  object creation
   Node *first = new Node (3);
-  Node* head = first;
+  Node *head = first;
   Node *tail = first;
 
   insertAtTail (tail, 5);
@@ -96,10 +142,12 @@ main ()
 
 
   traverse (head);
-  
-  insertAtPosition(head, 2 , 12 );
-  
-  traverse(head);
+
+  insertAtPosition (head, 2, 12);
+
+  traverse (head);
+
+  cout << "length of LinkList : " << length (head) << endl;
 
   return 0;
 }

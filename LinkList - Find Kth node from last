@@ -1,0 +1,94 @@
+#include <iostream>
+
+using namespace std;
+
+
+class Node
+{
+
+public:
+  int data;
+  Node *next;
+
+  // constructor
+    Node (int data)
+  {
+    this->data = data;
+    this->next = NULL;
+  }
+
+
+
+};
+
+void
+insertAtTail (Node * &tail, int d)
+{
+  // step 1 : 
+  Node *newNode = new Node (d);
+  //step 2 : 
+  tail->next = newNode;
+  //step 3 : 
+  tail = newNode;
+}
+
+void
+traverse (Node * &head)
+{
+  Node *temp = head;
+  while (temp != NULL)
+    {
+      cout << temp->data << " ";
+      temp = temp->next;
+    }
+
+  cout << endl;
+
+
+}
+
+
+
+int countKFromLast(Node* &head, int k){
+    //base case 
+    
+    if(head == NULL) return 0 ;
+    
+    int cnt = countKFromLast(head -> next , k )+ 1 ;
+    
+    if(cnt == k )
+        cout << "Kth Node From end is " << head -> data << endl;
+    return cnt ;
+    
+}
+
+int
+main ()
+{
+    
+    
+    
+  //  object creation
+  Node *first = new Node (3);
+  Node *head = first;
+  Node *tail = first;
+
+  insertAtTail (tail, 5);
+  insertAtTail (tail, 7);
+  insertAtTail (tail, 9);
+  insertAtTail (tail, 11);
+  insertAtTail (tail, 13);
+  insertAtTail (tail, 14);
+  insertAtTail (tail, 15);
+  
+  countKFromLast(head,2);
+  
+  
+/*  
+traverse (head);
+head = reverseIn_K_Group(head,3);
+cout<<"After funtion applied "<<endl;
+traverse (head);
+*/
+  return 0;
+}

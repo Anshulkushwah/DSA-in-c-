@@ -1,0 +1,106 @@
+
+#include <iostream>
+
+using namespace std;
+
+class Stack
+{
+
+public:
+
+  int *arr;
+  int top;
+  int size;
+
+    Stack (int s)
+  {
+    arr = new int[s];
+      top = -1;
+      size = s;
+
+  }
+
+  void push (int d)
+  {
+    if (top == size - 1)
+      {
+	cout << "Stack Overflow for a element " << d << endl;
+	return;
+      }
+
+    top++;
+    arr[top] = d;
+  }
+
+  void pop ()
+  {
+    if (top == -1)
+      {
+	cout << "stack underflow" << endl;
+	return;
+      }
+    top--;
+  }
+
+  int getSize ()
+  {
+    // it return the number of element present in stack
+    return this->top + 1;
+  }
+
+  int getTop ()
+  {
+    if (top != -1)
+      return arr[top];
+
+    else
+      return -1;
+  }
+
+  bool isEmpty ()
+  {
+    if (top == -1)
+      return 1;
+    else
+      return 0;
+  }
+
+
+};
+
+int
+main ()
+{
+  //Creation
+  Stack *st = new Stack (10);
+
+  // insertion 
+  st->push (1);
+  st->push (2);
+  st->push (3);
+  st->push (4);
+  st->push (5);
+  st->push (6);
+  st->push (7);
+  st->push (8);
+  st->push (9);
+  st->push (10);
+
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  st->pop ();
+  //st->pop();
+
+  cout << st->getSize () << endl;
+  cout << st->isEmpty () << endl;
+  cout << st->getTop () << endl;
+
+  return 0;
+}

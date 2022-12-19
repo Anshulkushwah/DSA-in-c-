@@ -1,0 +1,63 @@
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+void
+nextSmallerElement (int arr[], int len)
+{
+
+
+  stack < int >st;
+  stack < int > ansSt;
+  
+  int size = 1;
+  //int ansArr[size];
+  
+  st.push (-1);
+
+  for (int i = len - 1; i >= 0; i--)
+    {
+
+      int item = arr[i];
+
+      while (st.top () > item){
+      st.pop();
+          
+      }
+	
+	if(st.top()<item){
+      int n = st.top ();
+      ansSt.push(n);
+      size++;
+      //cout<<st.top()<<" ";
+	  st.push (item);
+	  
+	    
+	}
+    
+        
+    }
+//print the ans arr
+while(!ansSt.empty()){
+    cout<<ansSt.top()<<" ";
+    ansSt.pop();
+}
+
+
+
+}
+
+
+
+int
+main ()
+{
+  int arr[] = { 2,1,4,3 };
+  int len = sizeof (arr) / sizeof (arr[0]);
+  // cout<<arrLength;
+
+  nextSmallerElement (arr, len);
+  // cout<<"next Smaller Element : "<<nextSmallerElement(arr,len)<<endl;
+  return 0;
+}

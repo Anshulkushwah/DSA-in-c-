@@ -35,7 +35,7 @@ bool isValid(string s){
         st.push(ch);
       else{
         //closing brackets
-        if(match(ch,st.top())){
+        if(!st.empty() && match(ch,st.top())){
             st.pop();
                              }
         else {

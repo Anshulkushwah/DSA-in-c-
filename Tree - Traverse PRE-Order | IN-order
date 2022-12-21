@@ -1,0 +1,84 @@
+
+#include <iostream>
+
+using namespace std;
+
+class Node {
+    
+    public:
+    
+       int data;
+       Node* left;
+       Node* right;
+       
+    Node (int d){
+        data = d ;
+        left = NULL;
+        right = NULL;
+    } 
+    
+};
+
+ Node* buildTree (){
+     cout<<"Enter the value of data "<< endl;
+     int data;
+     cin >> data ;
+     
+     if(data == -1) return NULL;
+     
+     Node* newNode = new Node(data);
+     
+     cout<<" checking left child "<< endl;
+     newNode -> left = buildTree();
+     
+     cout<< " checking right child "<< endl;
+     newNode -> right = buildTree();
+     
+     return newNode;
+ } 
+ 
+ void preOrder (Node* &root){ //NLR
+     //base case
+     if(root == NULL)
+        return ;
+    
+    //N
+    cout<< root -> data << endl;
+    //L 
+    preOrder(root -> left);
+    //R 
+    preOrder(root->right);
+ }
+ 
+  void InOrder (Node* &root){ // LNR
+     //base case
+     if(root == NULL)
+        return ;
+    
+   
+    //L 
+    InOrder(root -> left);
+    //N
+    cout<< root -> data << endl;
+    //R 
+    InOrder(root->right);
+ }
+
+int main()
+{
+    Node* root = NULL;
+    
+    root = buildTree();
+    
+    cout<< " Printing preOrder " << endl;
+    
+    preOrder(root);
+    
+    cout<< " Printing inOrder " << endl;
+    
+    inOrder(root);
+    
+    
+    
+    return 0;
+}

@@ -1,0 +1,82 @@
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+class Node
+{
+  public:int data;
+  Node *left;
+  Node *right;
+
+    Node (int d)
+  {
+    data = d;
+    left = NULL;
+    right = NULL;
+  }
+
+
+};
+
+Node *
+buildTree ()
+{
+  cout << " ENTER THE VALUE OF DATA " << endl;
+  int data;
+  cin >> data;
+
+  if (data == -1)
+    return NULL;
+
+  Node *newNode = new Node (data);
+
+  cout << " Enter the data left child of " << data << endl;
+  newNode->left = buildTree ();
+
+  cout << " Enter the data right child of " << data << endl;
+  newNode->right = buildTree ();
+
+  return newNode;
+}
+
+
+
+
+
+int height(Node* root){
+    if(root == NULL)
+       return 0;
+       
+       return max(height(root->left),height(root->right))+1;
+}
+int diameter(Node* root){
+    if(root == NULL)
+    return 0;
+    
+    int option1 = diameter(root->left);
+    int option2 = diameter(root->right);
+    int option3 = 1 + height(root->left) + height (root->right);
+    return max(option1,max(option2,option3));
+    
+}
+
+int diameterOfBinaryTree(Node* root){
+    
+    if(root == NULL)
+    return 0;
+    
+    return diameter(root) - 1;
+}
+
+int
+main ()
+{
+  Node *root = NULL;
+
+  root = buildTree ();
+ 
+ cout<<diameterOfBinaryTree(root);
+ 
+  return 0;
+}

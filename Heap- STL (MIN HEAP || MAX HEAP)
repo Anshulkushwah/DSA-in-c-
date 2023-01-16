@@ -1,0 +1,47 @@
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+
+
+int main()
+{
+    //max heap
+    priority_queue<int>q;
+    
+    //insertion
+    q.push(1);
+    q.push(2);
+    q.push(5);
+    q.push(5);
+    q.push(3);
+    
+    //top element or root element
+    cout<< q.top() << endl;
+    
+    //delete
+    q.pop();
+    
+    
+    cout<<q.size()<<endl;
+    
+    if(q.empty())
+    cout<<"heap is empty "<< endl;
+    else
+    cout<<"heap is not empty"<<endl;
+    
+    
+    //min heap
+    priority_queue<int, vector<int>, greater<int> >minHeap;
+    
+    minHeap.push(1);
+    minHeap.push(2);
+    minHeap.push(5);
+    minHeap.push(5);
+    minHeap.push(3);
+    
+    cout<<minHeap.top()<<endl;
+    
+    return 0;
+}

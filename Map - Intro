@@ -1,0 +1,41 @@
+
+#include <iostream>
+#include<unordered_map>
+using namespace std;
+
+int main()
+{
+   //creation 
+   unordered_map<char,int>m;
+   
+   string name = "Anshul";
+   
+   //insertion
+   pair<char,int>p = make_pair('a',3); // type 1
+   m.insert(p);
+   
+   m['b'] = 2 ;//type 2
+   
+   m.insert({'c',5}); //type 3
+   
+   //access
+   cout << m['b'] << endl;
+   cout << m['z'] << endl; // jo chiz hmne insert nahi kari uski value 0 aaygi
+   
+   cout << m.size() <<endl; 
+   
+   cout<< m.count('a') << endl; // 'a' present hoga map mai to 1 aayga
+   cout<< m.count('v') << endl; // or present nahi hoga to sero aayga 
+   
+   unordered_map<char , int > :: iterator i = m.find ('k'); // i iterator hai (just like pointer) agr k present hai to i k ko point kr raha hoga
+   // agar present nahi hai to end ko point kr raha hoga
+   
+   if(i != m.end()) {
+       cout<< "Element found" << endl;
+   }
+   else {
+       cout<< " Element not found"<< endl;
+   }
+   
+    return 0;
+}

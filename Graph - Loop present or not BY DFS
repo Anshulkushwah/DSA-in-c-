@@ -1,0 +1,165 @@
+#include <iostream>
+#include <map>
+#include <queue>
+#include <list>
+
+
+
+using namespace std;
+
+
+// this is for GENERIC CODE matalab apan
+//koi bhi typ ka data use kr skte hai
+//initialize krne ki jarurat nahi hai bas int ki jgh typename DAAL DENA 'T'
+template <typename T> 
+
+
+class Graph{
+    public:
+
+        map<T,list<T>>adjList;
+
+
+
+        void addEdge(T u, T v, bool direction){
+
+        //direction = 0 -> indirected Graph
+        //direction = 1 -> directed Graph
+
+
+        //for u->v
+        adjList[u].push_back(v);
+
+
+        //check v->u
+        if(direction == 0){
+           adjList[v].push_back(u);
+
+        }
+
+    }
+
+
+    void printAdj(){
+        for(auto i: adjList){
+            cout<<i.first<<" -> ";
+
+            for(auto j: i.second){
+                cout<<j<<", ";
+
+
+            } 
+
+            cout<<endl;
+        }
+    }
+
+
+
+    bool isCyclicBfs(int src){
+    // bool isCyclicBfs(int src, map<int , bool > & visited){ //for disconnected    
+    map<int , bool > visited; //fot connected
+    map<int, int > parent;
+    queue<int>q;
+
+    q.push(src);
+    visited[src] =true;
+    parent[src] = -1 ;
+
+    while(!q.empty()){
+        int front = q.front();
+        q.pop();
+
+        for(auto neighbour : adjList[front]){
+            if(visited[neighbour]== true && neighbour != parent[front]){
+                return true ;
+            }
+            else if(!visited[neighbour]) {
+                q.push(neighbour);
+                visited[neighbour] = true ;
+                parent[neighbour] = front ;
+
+            }
+           }
+        }
+
+        return false;
+    }
+    
+    
+    bool isCyclicDfs(int src,int parent,map<int,bool>& visited){
+        visited[src]=true;
+        
+        for(auto neighbour : adjList[src]){
+            if(!visited[neighbour]){
+                bool CyclicDetected = isCyclicDfs(neighbour,src,visited);
+                if(CyclicDetected == true) return true;
+            }
+            else if (visited[neighbour] == true && neighbour != parent){
+                //Cyclic Present 
+                return true;
+            }
+        }
+        return false;
+    }
+
+};
+
+
+int main()
+{
+  Graph<int>g;
+
+  g.addEdge(0,1,0);
+  g.addEdge(1,2,0);
+  g.addEdge(1,3,0);
+  g.addEdge(2,3,0);
+  g.addEdge(3,4,0);
+  g.addEdge(2,4,0);
+
+
+
+  cout<< "Printing the Adjacency List 1 :"<<endl;
+  g.printAdj();
+
+
+
+  Graph<int> g2;
+
+  g2.addEdge(0,2,0);
+  g2.addEdge(2,3,0);
+//   g2.addEdge(2,4,0);
+  g2.addEdge(3,4,0);
+  g2.addEdge(1,3,0);
+
+  cout<< "Printing the Adjacency List 2 :"<<endl;
+  g2.printAdj();
+
+
+  cout<<"Loop present or not BY BFS "<<g2.isCyclicBfs(0)<<endl;
+
+//   //for disconnected
+
+//   map<int,bool>visited;
+//   int n = 5;
+
+//   for(int i =0 ; i<5 ;i++){
+//       if(!visited[i]){
+//          bool ans = g.isCyclicBfs(i,visited);
+//          if(ans == true){
+
+//              return true;
+//          }
+//       }
+//   }
+
+
+//for DFS 
+
+int parent = -1 ;
+map<int, bool> visited3;
+cout<< "Loop present or not BY DFS " << g.isCyclicDfs(0,parent,visited3)<<endl;
+
+
+    return 0;
+}
